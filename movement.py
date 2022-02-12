@@ -1,8 +1,8 @@
-from gpio4 import GPIO as GPIO
+# from gpio4 import GPIO as GPIO
 # import pigpio
+# import RPi.GPIO as GPIO # cannot be installed on Windows python(?)
 import serial
-
-GPIO.setmode(mode=GPIO.BCM)
+# GPIO.setmode(mode=GPIO.BCM)
 
 
 class Movement:
@@ -16,7 +16,7 @@ class Movement:
         self.ser.close()
         print("serial close")
 
-    def pidmode(self):
+    def pid(self):
         # TODO
         pass
 
