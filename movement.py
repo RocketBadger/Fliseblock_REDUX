@@ -1,6 +1,6 @@
 # from gpio4 import GPIO as GPIO
 # import pigpio
-# import RPi.GPIO as GPIO # cannot be installed on Windows python(?)
+# import RPi.GPIO as GPIO # cannot be installed on Windows python(?)/raspberry pi exclusive module
 import serial
 # GPIO.setmode(mode=GPIO.BCM)
 
@@ -20,7 +20,7 @@ class Movement:
         # TODO
         pass
 
-    def servocontrol(self, angle1, angle2):
+    def camera_tower_control(self, angle1, angle2):
         # TODO: test this
         if angle1 < 500:
             angle1 = 500
@@ -41,7 +41,7 @@ class Movement:
         cmd = [0xFF, 0xFE, 2, 4, servo_upper1, servo_lower1, servo_upper2, servo_lower2, checksum]
         self.ser.write(bytes(cmd))
 
-    def servocontrol_single(self, servoindex, angle):
+    def camera_tower_control_singleservo(self, servoindex, angle):
         # TODO: Test this
         if angle < 500:
             angle = 500
