@@ -1,16 +1,27 @@
-# This is a sample Python script.
+from movement import Movement
+import time
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+movement = Movement()
 
+time.sleep(3)
+print("camera_tower_control test")
+movement.camera_tower_control(1500, 1500)
+time.sleep(3)
+print("camera_tower_control_singleservo 1 test")
+movement.camera_tower_control_singleservo(1, 2000)
+time.sleep(3)
+print("camera_tower_control_singleservo 2 test")
+movement.camera_tower_control_singleservo(2, 2000)
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
-
-
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+time.sleep(3)
+print("wheelcontrol test a")
+movement.wheelcontrol(8, 0, 0, 0)
+time.sleep(3)
+print("wheelcontrol test b")
+movement.wheelcontrol(0, 8, 0, 0)
+time.sleep(3)
+print("wheelcontrol test c")
+movement.wheelcontrol(0, 0, 8, 0)
+time.sleep(3)
+print("wheelcontrol test d")
+movement.wheelcontrol(0, 0, 0, 8)

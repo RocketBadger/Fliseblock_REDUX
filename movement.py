@@ -1,8 +1,7 @@
-# from gpio4 import GPIO as GPIO
-# import pigpio
-# import RPi.GPIO as GPIO # cannot be installed on Windows python(?)/raspberry pi exclusive module
+import RPi.GPIO as GPIO  # cannot be installed on Windows python(?)/raspberry pi exclusive module
 import serial
-# GPIO.setmode(mode=GPIO.BCM)
+
+GPIO.setmode(mode=GPIO.BCM)
 
 
 class Movement:
@@ -10,7 +9,6 @@ class Movement:
         self.ser = serial.Serial("/dev/ttyAMA0", 115200)  # Opens serial port on pins 8 & 10.
         # alternatively use: /dev/serial0
         print("Serial open")
-        # self.pi = pigpio.pi()
 
     def __close__(self):
         self.ser.close()
