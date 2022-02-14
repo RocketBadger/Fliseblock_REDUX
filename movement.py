@@ -1,7 +1,7 @@
 import RPi.GPIO as GPIO  # cannot be installed on Windows python(?)/raspberry pi exclusive module
 import serial
 
-GPIO.setmode(mode=GPIO.BCM)
+GPIO.setmode(GPIO.BCM)
 
 
 class Movement:
@@ -37,7 +37,11 @@ class Movement:
 
         checksum = (2 + 4 + servo_upper1 + servo_lower1 + servo_upper2 + servo_lower2) & 0xff
         cmd = [0xFF, 0xFE, 2, 4, servo_upper1, servo_lower1, servo_upper2, servo_lower2, checksum]
-        self.ser.write(bytes(cmd))
+        try:
+            self.ser.write(bytes(cmd))
+        except Exception as e:
+            print(e)
+        # self.ser.write(bytes(cmd))
 
     def camera_tower_control_singleservo(self, servoindex, angle):
         # TODO: Test this

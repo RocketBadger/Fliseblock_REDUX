@@ -1,11 +1,12 @@
 from movement import Movement
 import time
+from raspblock import Raspblock
 
 movement = Movement()
 
-time.sleep(3)
 print("camera_tower_control test")
-movement.camera_tower_control(1500, 1500)
+Raspblock.Servo_control(movement, 1500, 1500)
+# movement.camera_tower_control(1500, 1500)
 time.sleep(3)
 print("camera_tower_control_singleservo 1 test")
 movement.camera_tower_control_singleservo(1, 2000)
